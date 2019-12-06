@@ -1,5 +1,117 @@
-import React from "react";
+import React, { useState } from "react";
+import NavDropdown from "../commons/navdropdown";
 const NavBar = props => {
+  const [dropdown, setDropdown] = useState([
+    {
+      id: 1,
+      Name: "Camera",
+      submenu: [
+        {
+          name: "Canon",
+          route: "#"
+        },
+        {
+          name: "Sony",
+          route: "#"
+        },
+        {
+          name: "Red",
+          route: "#"
+        }
+      ]
+    },
+    {
+      id: 2,
+      Name: "Case",
+      submenu: [
+        {
+          name: "Shoulder",
+          route: "#"
+        },
+        {
+          name: "Backpack",
+          route: "#"
+        },
+        {
+          name: "Straps",
+          route: "#"
+        }
+      ]
+    },
+    {
+      id: 3,
+      Name: "Video",
+      submenu: [
+        {
+          name: "Canon",
+          route: "#"
+        },
+        {
+          name: "Sony",
+          route: "#"
+        },
+        {
+          name: "Red",
+          route: "#"
+        }
+      ]
+    },
+    {
+      id: 4,
+      Name: "Accessories",
+      submenu: [
+        {
+          name: "Canon",
+          route: "#"
+        },
+        {
+          name: "Sony",
+          route: "#"
+        },
+        {
+          name: "Red",
+          route: "#"
+        }
+      ]
+    },
+    {
+      id: 5,
+      Name: "Lens",
+      submenu: [
+        {
+          name: "Canon",
+          route: "#"
+        },
+        {
+          name: "Sony",
+          route: "#"
+        },
+        {
+          name: "Red",
+          route: "#"
+        }
+      ]
+    },
+    {
+      id: 6,
+      Name: "Lifestyles",
+      submenu: [
+        {
+          name: "Canon",
+          route: "#"
+        },
+        {
+          name: "Sony",
+          route: "#"
+        },
+        {
+          name: "Red",
+          route: "#"
+        }
+      ]
+    }
+  ]);
+
   return (
     <div className="h-48 bg-blue-800">
       <div className="container mx-auto px-32">
@@ -42,6 +154,15 @@ const NavBar = props => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex flex-row pt-5">
+          {dropdown.map(d => (
+            <div className="self-end mr-3">
+              <NavDropdown item={d.Name} submenu={d.submenu}>
+                {" "}
+              </NavDropdown>
+            </div>
+          ))}
         </div>
       </div>
     </div>

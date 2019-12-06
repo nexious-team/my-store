@@ -3403,6 +3403,44 @@ video {
   display: none;
 }
 
+.group:hover .group-hover\:block {
+  display: block;
+}
+
+.group:hover .group-hover\:inline-block {
+  display: inline-block;
+}
+
+.group:hover .group-hover\:inline {
+  display: inline;
+}
+
+.group:hover .group-hover\:flex {
+  display: -webkit-box;
+  display: flex;
+}
+
+.group:hover .group-hover\:inline-flex {
+  display: -webkit-inline-box;
+  display: inline-flex;
+}
+
+.group:hover .group-hover\:table {
+  display: table;
+}
+
+.group:hover .group-hover\:table-row {
+  display: table-row;
+}
+
+.group:hover .group-hover\:table-cell {
+  display: table-cell;
+}
+
+.group:hover .group-hover\:hidden {
+  display: none;
+}
+
 .flex-row {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -3671,8 +3709,8 @@ video {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.font-josefin {
-  font-family: josefin sans;
+.font-anton {
+  font-family: Anton;
 }
 
 .font-hairline {
@@ -11748,6 +11786,10 @@ video {
   font-size: 5rem;
 }
 
+.text-10xl {
+  font-size: 10rem;
+}
+
 .italic {
   font-style: italic;
 }
@@ -14918,44 +14960,6 @@ video {
     cursor: not-allowed;
   }
 
-  .sm\:block {
-    display: block;
-  }
-
-  .sm\:inline-block {
-    display: inline-block;
-  }
-
-  .sm\:inline {
-    display: inline;
-  }
-
-  .sm\:flex {
-    display: -webkit-box;
-    display: flex;
-  }
-
-  .sm\:inline-flex {
-    display: -webkit-inline-box;
-    display: inline-flex;
-  }
-
-  .sm\:table {
-    display: table;
-  }
-
-  .sm\:table-row {
-    display: table-row;
-  }
-
-  .sm\:table-cell {
-    display: table-cell;
-  }
-
-  .sm\:hidden {
-    display: none;
-  }
-
   .sm\:flex-row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -15224,8 +15228,8 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .sm\:font-josefin {
-    font-family: josefin sans;
+  .sm\:font-anton {
+    font-family: Anton;
   }
 
   .sm\:font-hairline {
@@ -23301,6 +23305,10 @@ video {
     font-size: 5rem;
   }
 
+  .sm\:text-10xl {
+    font-size: 10rem;
+  }
+
   .sm\:italic {
     font-style: italic;
   }
@@ -26472,44 +26480,6 @@ video {
     cursor: not-allowed;
   }
 
-  .md\:block {
-    display: block;
-  }
-
-  .md\:inline-block {
-    display: inline-block;
-  }
-
-  .md\:inline {
-    display: inline;
-  }
-
-  .md\:flex {
-    display: -webkit-box;
-    display: flex;
-  }
-
-  .md\:inline-flex {
-    display: -webkit-inline-box;
-    display: inline-flex;
-  }
-
-  .md\:table {
-    display: table;
-  }
-
-  .md\:table-row {
-    display: table-row;
-  }
-
-  .md\:table-cell {
-    display: table-cell;
-  }
-
-  .md\:hidden {
-    display: none;
-  }
-
   .md\:flex-row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -26778,8 +26748,8 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .md\:font-josefin {
-    font-family: josefin sans;
+  .md\:font-anton {
+    font-family: Anton;
   }
 
   .md\:font-hairline {
@@ -34855,6 +34825,10 @@ video {
     font-size: 5rem;
   }
 
+  .md\:text-10xl {
+    font-size: 10rem;
+  }
+
   .md\:italic {
     font-style: italic;
   }
@@ -38026,44 +38000,6 @@ video {
     cursor: not-allowed;
   }
 
-  .lg\:block {
-    display: block;
-  }
-
-  .lg\:inline-block {
-    display: inline-block;
-  }
-
-  .lg\:inline {
-    display: inline;
-  }
-
-  .lg\:flex {
-    display: -webkit-box;
-    display: flex;
-  }
-
-  .lg\:inline-flex {
-    display: -webkit-inline-box;
-    display: inline-flex;
-  }
-
-  .lg\:table {
-    display: table;
-  }
-
-  .lg\:table-row {
-    display: table-row;
-  }
-
-  .lg\:table-cell {
-    display: table-cell;
-  }
-
-  .lg\:hidden {
-    display: none;
-  }
-
   .lg\:flex-row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -38332,8 +38268,8 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .lg\:font-josefin {
-    font-family: josefin sans;
+  .lg\:font-anton {
+    font-family: Anton;
   }
 
   .lg\:font-hairline {
@@ -46409,6 +46345,10 @@ video {
     font-size: 5rem;
   }
 
+  .lg\:text-10xl {
+    font-size: 10rem;
+  }
+
   .lg\:italic {
     font-style: italic;
   }
@@ -49580,44 +49520,6 @@ video {
     cursor: not-allowed;
   }
 
-  .xl\:block {
-    display: block;
-  }
-
-  .xl\:inline-block {
-    display: inline-block;
-  }
-
-  .xl\:inline {
-    display: inline;
-  }
-
-  .xl\:flex {
-    display: -webkit-box;
-    display: flex;
-  }
-
-  .xl\:inline-flex {
-    display: -webkit-inline-box;
-    display: inline-flex;
-  }
-
-  .xl\:table {
-    display: table;
-  }
-
-  .xl\:table-row {
-    display: table-row;
-  }
-
-  .xl\:table-cell {
-    display: table-cell;
-  }
-
-  .xl\:hidden {
-    display: none;
-  }
-
   .xl\:flex-row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -49886,8 +49788,8 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .xl\:font-josefin {
-    font-family: josefin sans;
+  .xl\:font-anton {
+    font-family: Anton;
   }
 
   .xl\:font-hairline {
@@ -57961,6 +57863,10 @@ video {
 
   .xl\:text-7xl {
     font-size: 5rem;
+  }
+
+  .xl\:text-10xl {
+    font-size: 10rem;
   }
 
   .xl\:italic {

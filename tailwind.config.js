@@ -2,11 +2,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        josefin: ["josefin sans"],
-        anton: ["anton"]
+        anton: ["Anton"]
       },
       fontSize: {
-        "7xl": "5rem"
+        "7xl": "5rem",
+        "10xl": "10rem"
       },
       spacing: {
         "72": "18rem",
@@ -20,6 +20,8 @@ module.exports = {
       }
     }
   },
-  variants: {},
+  variants: {
+    display: ["group-hover"]
+  },
   plugins: []
 };
