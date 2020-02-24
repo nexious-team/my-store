@@ -1,0 +1,4 @@
+{
+  "API_ENDPOINT": "https://nexious-store-api.herokuapp.com/api/",
+  "APP_TOKEN": "userToken"
+}

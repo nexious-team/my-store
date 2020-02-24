@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavDropdown from "../commons/navdropdown";
+import authService from "../services/authService";
 const NavBar = props => {
   const [dropdown, setDropdown] = useState([
     {
@@ -111,6 +112,9 @@ const NavBar = props => {
       ]
     }
   ]);
+  useEffect(() => {
+    console.log(authService.getCurrentUser());
+  });
 
   return (
     <div className="h-48 bg-blue-800">
@@ -121,22 +125,28 @@ const NavBar = props => {
           </div>
           <div>
             <div className="w-full max-w-sm ml-0 text-right pb-3">
-              <span className="text-white text-sm">
-                Sign in or Create an Account
-              </span>
+              {!authService.getCurrentUser() ? (
+                <a href="/login">
+                  <span className="text-white text-sm">
+                    Sign in or Create an Account
+                  </span>
+                </a>
+              ) : (
+                <p>{authService.getCurrentUser()}</p>
+              )}
             </div>
             <div className="flex flex-row items-center">
               <div className="mr-2">
-                <form class="w-full max-w-sm">
-                  <div class="flex items-center bg-blue-900 rounded-sm px-5 border-b border-b-2 border-white-500 py-2">
+                <form className="w-full max-w-sm">
+                  <div className="flex items-center bg-blue-900 rounded-sm px-5 border-b border-b-2 border-white-500 py-2">
                     <input
-                      class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                      className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
                       type="text"
                       placeholder="Search All Products"
                       aria-label="Full name"
                     />
                     <button
-                      class="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-900 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded"
+                      className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-900 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded"
                       type="button"
                     >
                       Sign Up
@@ -146,7 +156,7 @@ const NavBar = props => {
               </div>
               <div className="ml-2">
                 <button
-                  class="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-900 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded"
+                  className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-900 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded"
                   type="button"
                 >
                   <span className="text-2xl">CART</span>
@@ -157,7 +167,7 @@ const NavBar = props => {
         </div>
         <div className="flex flex-row pt-5">
           {dropdown.map(d => (
-            <div className="self-end mr-3">
+            <div className="self-end mr-3" key={d.id}>
               <NavDropdown item={d.Name} submenu={d.submenu}>
                 {" "}
               </NavDropdown>

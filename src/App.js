@@ -6,6 +6,8 @@ import {
   Link
 } from "react-router-dom";
 import routes from "./routes";
+import { Provider } from "react-redux";
+import store from "./store";
 
 import { Navbar } from "./components";
 import "./App.css";
@@ -23,7 +25,9 @@ function App() {
             path={route.path}
             render={props => (
               // pass the sub-routes down to keep nesting
-              <route.component {...props} />
+              <Provider store={store}>
+                <route.component {...props} />
+              </Provider>
             )}
           />
         ))}

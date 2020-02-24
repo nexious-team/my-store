@@ -1,4 +1,6 @@
-import Home from "./Home";
-import Service from "./Service";
+import Home from "./Home/Home";
+import Service from "./Service/Service";
+import Login from "./Login/Login";
+import Register from "./Register/Register";
 
-export { Home, Service };
+export { Home, Service, Login, Register };
