@@ -55,7 +55,7 @@ const FeatureCategory = () => {
                 />
               </div>
               <div className="font-mono text-gray-800">
-                <p className="text-center">iPhone 11 Pro</p>
+                <a href="/product-detail"><p className="text-center">iPhone 11 Pro</p></a>
               </div>
             </div>
           </div>

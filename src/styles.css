@@ -3713,6 +3713,14 @@ video {
   font-family: Anton;
 }
 
+.font-hindSiliguri {
+  font-family: HindSiliguri;
+}
+
+.font-josefin {
+  font-family: JosefinSans;
+}
+
 .font-hairline {
   font-weight: 100;
 }
@@ -15230,6 +15238,14 @@ video {
 
   .sm\:font-anton {
     font-family: Anton;
+  }
+
+  .sm\:font-hindSiliguri {
+    font-family: HindSiliguri;
+  }
+
+  .sm\:font-josefin {
+    font-family: JosefinSans;
   }
 
   .sm\:font-hairline {
@@ -26752,6 +26768,14 @@ video {
     font-family: Anton;
   }
 
+  .md\:font-hindSiliguri {
+    font-family: HindSiliguri;
+  }
+
+  .md\:font-josefin {
+    font-family: JosefinSans;
+  }
+
   .md\:font-hairline {
     font-weight: 100;
   }
@@ -38272,6 +38296,14 @@ video {
     font-family: Anton;
   }
 
+  .lg\:font-hindSiliguri {
+    font-family: HindSiliguri;
+  }
+
+  .lg\:font-josefin {
+    font-family: JosefinSans;
+  }
+
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -49790,6 +49822,14 @@ video {
 
   .xl\:font-anton {
     font-family: Anton;
+  }
+
+  .xl\:font-hindSiliguri {
+    font-family: HindSiliguri;
+  }
+
+  .xl\:font-josefin {
+    font-family: JosefinSans;
   }
 
   .xl\:font-hairline {

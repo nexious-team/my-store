@@ -159,7 +159,9 @@ const NavBar = props => {
                   className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-900 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded"
                   type="button"
                 >
-                  <span className="text-2xl">CART</span>
+                  <a href="/user/cart">
+                    <span className="text-2xl">CART</span>
+                  </a>
                 </button>
               </div>
             </div>
