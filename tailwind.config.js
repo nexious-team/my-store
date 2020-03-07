@@ -2,9 +2,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        anton: ["Anton"],
-        hindSiliguri: ["HindSiliguri"],
-        josefin: ["JosefinSans"]
+        anton: ["anton"],
+        hindSiliguri: ["hind siliguri"],
+        josefin: ["josefin sans"]
       },
       fontSize: {
         "7xl": "5rem",

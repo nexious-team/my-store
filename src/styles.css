@@ -12,6 +12,24 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: 'josefin sans';
+
+  src: url('assets/fonts/JosefinSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'hind siliguri';
+
+  src: url('assets/fonts/HindSiliguri.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'anton';
+
+  src: url('assets/fonts/Anton-Regular.ttf') format('truetype');
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -3710,15 +3728,15 @@ video {
 }
 
 .font-anton {
-  font-family: Anton;
+  font-family: anton;
 }
 
 .font-hindSiliguri {
-  font-family: HindSiliguri;
+  font-family: hind siliguri;
 }
 
 .font-josefin {
-  font-family: JosefinSans;
+  font-family: josefin sans;
 }
 
 .font-hairline {
@@ -15237,15 +15255,15 @@ video {
   }
 
   .sm\:font-anton {
-    font-family: Anton;
+    font-family: anton;
   }
 
   .sm\:font-hindSiliguri {
-    font-family: HindSiliguri;
+    font-family: hind siliguri;
   }
 
   .sm\:font-josefin {
-    font-family: JosefinSans;
+    font-family: josefin sans;
   }
 
   .sm\:font-hairline {
@@ -26765,15 +26783,15 @@ video {
   }
 
   .md\:font-anton {
-    font-family: Anton;
+    font-family: anton;
   }
 
   .md\:font-hindSiliguri {
-    font-family: HindSiliguri;
+    font-family: hind siliguri;
   }
 
   .md\:font-josefin {
-    font-family: JosefinSans;
+    font-family: josefin sans;
   }
 
   .md\:font-hairline {
@@ -38293,15 +38311,15 @@ video {
   }
 
   .lg\:font-anton {
-    font-family: Anton;
+    font-family: anton;
   }
 
   .lg\:font-hindSiliguri {
-    font-family: HindSiliguri;
+    font-family: hind siliguri;
   }
 
   .lg\:font-josefin {
-    font-family: JosefinSans;
+    font-family: josefin sans;
   }
 
   .lg\:font-hairline {
@@ -49821,15 +49839,15 @@ video {
   }
 
   .xl\:font-anton {
-    font-family: Anton;
+    font-family: anton;
   }
 
   .xl\:font-hindSiliguri {
-    font-family: HindSiliguri;
+    font-family: hind siliguri;
   }
 
   .xl\:font-josefin {
-    font-family: JosefinSans;
+    font-family: josefin sans;
   }
 
   .xl\:font-hairline {

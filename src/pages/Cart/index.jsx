@@ -20,15 +20,32 @@ const Cart = () => {
       price: 1800.0
     }
   ]);
+  const getTotalUnitPrice = () => {
+    let price = 0;
+    cart.forEach(c => {
+      price += c.price * c.qty;
+    });
+    return price;
+  };
+  const getShippingCost = () => {
+    return 100;
+  };
+  const getTotalPrice = () => {
+    return getTotalUnitPrice() + getShippingCost();
+  };
   const handleMinus = index => {
-    const cartitems = { ...cart };
+    const cartitems = [...cart];
     cartitems[index].qty--;
     if (cartitems[index].qty < 0) {
       cartitems[index].qty = 0;
     }
-    // setCart(cartitems);
-    console.log(cart);
-    console.log(cartitems);
+    setCart(cartitems);
+  };
+
+  const handlePlus = index => {
+    const cartitems = [...cart];
+    cartitems[index].qty++;
+    setCart(cartitems);
   };
   return (
     <div className="min-h-screen bg-gray-100">
@@ -41,18 +58,18 @@ const Cart = () => {
           <div className="pr-5">Leica S</div>
         </div>
         <div>
-          <p className="font-sans text-2xl ">Your Cart</p>
+          <p className="font-anton font-hairline text-2xl ">Your Cart</p>
         </div>
         <div className="flex ">
           <div className="w-3/4 pr-2">
             <div className="border rounded  bg-white pl-5 py-4">
-              <span className="font-semibold font-sans text-xl">
+              <span className="font-semibold font-hindSiliguri text-xl">
                 There are 4 items in your cart
               </span>
               <hr />
               {cart.map((i, index) => (
                 <div>
-                  <div className="flex">
+                  <div className="flex font-hindSiliguri">
                     <div className="w-1/5 h-40 flex items-center">
                       <img
                         src="https://cdn.shopify.com/s/files/1/0543/1637/products/1347911009_360x.jpg?v=1484754685"
@@ -70,28 +87,35 @@ const Cart = () => {
                           <p className="pr-2">Qty: </p>
                           <div
                             onClick={() => handleMinus(index)}
-                            className="px-2 text-white bg-blue-700 text-md rounded-l"
+                            className="px-2 text-white hover:bg-blue-800 bg-blue-700 text-md rounded-l"
                           >
-                            <FontAwesomeIcon
-                              className=" mx-auto text-sm"
-                              icon={faMinus}
-                            />
+                            <button onClick={() => handleMinus(index)}>
+                              <FontAwesomeIcon
+                                className=" mx-auto text-sm"
+                                icon={faMinus}
+                              />
+                            </button>
                           </div>
                           <div className="w-10 border text-center font-light text-sm">
                             <p>{i.qty}</p>
                           </div>
-                          <div className="px-2 text-white bg-red-700 text-md rounded-r ">
-                            <FontAwesomeIcon
-                              className=" mx-auto text-sm"
-                              icon={faPlus}
-                            />
+                          <div className="px-2 text-white hover:bg-red-800 bg-red-700 text-md rounded-r ">
+                            <button onClick={() => handlePlus(index)}>
+                              <FontAwesomeIcon
+                                className=" mx-auto text-sm"
+                                icon={faPlus}
+                              />
+                            </button>
                           </div>
                         </div>
                       </p>
                     </div>
                     <div className="w-1/5 h-40 flex items-center">
                       <span className="text-blue-500 text-2xl font-medium">
-                        ${i.qty * i.price}
+                        {new Intl.NumberFormat("en-US", {
+                          style: "currency",
+                          currency: "USD"
+                        }).format(i.qty * i.price)}
                       </span>
                     </div>
                   </div>
@@ -110,16 +134,31 @@ const Cart = () => {
               <hr />
               <div className="flex px-2 pt-3 text-md">
                 <p className="flex-1 text-left">Total Unit Cost: </p>
-                <p>$5400</p>
+                <p>
+                  {new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD"
+                  }).format(getTotalUnitPrice())}
+                </p>
               </div>
               <div className="flex px-2 py-3 text-md">
                 <p className="flex-1 text-left">Estimate Shipping Cost: </p>
-                <p>$120</p>
+                <p>
+                  {new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD"
+                  }).format(getShippingCost())}
+                </p>
               </div>
               <hr className="font-semibold" />
               <div className="flex px-2 pt-3 text-md">
                 <p className="flex-1 text-left">Total Cost: </p>
-                <p>$5520</p>
+                <p>
+                  {new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD"
+                  }).format(getTotalUnitPrice())}
+                </p>
               </div>
             </div>
             <div className="pt-3">
