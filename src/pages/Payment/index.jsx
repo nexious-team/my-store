@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import CardSeletion from "./CardSelection";
 import CheckoutForm from "./CheckoutForm";
 const stripePromise = loadStripe("pk_test_WaCkQbtLC5eFJWAW5bMZ5Cpx00v6MiilgA");
 const Payment = () => {

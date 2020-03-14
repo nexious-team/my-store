@@ -1,25 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import CartService from "../../services/cart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Cart = () => {
-  const [cart, setCart] = useState([
-    {
-      key: 0,
-      qty: 1,
-      price: 1800.0
-    },
-    {
-      key: 1,
-      qty: 1,
-      price: 1800.0
-    },
-    {
-      key: 2,
-      qty: 1,
-      price: 1800.0
-    }
-  ]);
+  const [cart, setCart] = useState([]);
+  // let cart = [];
+
   const getTotalUnitPrice = () => {
     let price = 0;
     cart.forEach(c => {
@@ -39,6 +26,7 @@ const Cart = () => {
     if (cartitems[index].qty < 0) {
       cartitems[index].qty = 0;
     }
+    CartService.editCartItems(index, cartitems[index].qty);
     setCart(cartitems);
   };
 
@@ -46,7 +34,11 @@ const Cart = () => {
     const cartitems = [...cart];
     cartitems[index].qty++;
     setCart(cartitems);
+    CartService.editCartItems(index, cartitems[index].qty);
   };
+  useEffect(() => {
+    setCart(CartService.getCartItems());
+  }, []);
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="mx-auto container px-32">
@@ -64,11 +56,11 @@ const Cart = () => {
           <div className="w-3/4 pr-2">
             <div className="border rounded  bg-white pl-5 py-4">
               <span className="font-semibold font-hindSiliguri text-xl">
-                There are 4 items in your cart
+                There are {cart.length} items in your cart
               </span>
               <hr />
               {cart.map((i, index) => (
-                <div>
+                <div key={i.key}>
                   <div className="flex font-hindSiliguri">
                     <div className="w-1/5 h-40 flex items-center">
                       <img
@@ -82,7 +74,7 @@ const Cart = () => {
                         Product Description: Lorem ipsum dolor sit amet
                         consectetur, adipisicing elit. Non{" "}
                       </p>
-                      <p className="text-lg font-medium">
+                      <div className="text-lg font-medium">
                         <div className="flex">
                           <p className="pr-2">Qty: </p>
                           <div
@@ -108,7 +100,7 @@ const Cart = () => {
                             </button>
                           </div>
                         </div>
-                      </p>
+                      </div>
                     </div>
                     <div className="w-1/5 h-40 flex items-center">
                       <span className="text-blue-500 text-2xl font-medium">

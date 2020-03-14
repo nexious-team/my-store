@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { v1 as uuidv1 } from "uuid";
+import CartService from "../../services/cart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,6 +24,11 @@ const ProductDetail = () => {
     }
   ];
   const [img_index, setImgIndex] = useState(0);
+  const handleAddToCart = id => {
+    CartService.addItemToCart(id);
+    // newCart.push({ id: Math.random().toString() });
+    // localStorage.setItem("cart", newCart);
+  };
   return (
     <div className="mx-auto container px-32">
       <div className="h-12 border-b border-gray-200 flex items-center font-mono ">
@@ -60,7 +67,10 @@ const ProductDetail = () => {
               </div>
             </div>
             <div className="pt-6">
-              <button className="rounded w-48 border-2 border-blue-600 px-4 py-2 text-blue-600 font-sans text-md">
+              <button
+                onClick={() => handleAddToCart(uuidv1())}
+                className="rounded w-48 border-2 border-blue-600 px-4 py-2 text-blue-600 font-sans text-md"
+              >
                 <FontAwesomeIcon className="mr-2" icon={faCoffee} />
                 <span className="uppercase">add to cart</span>
               </button>

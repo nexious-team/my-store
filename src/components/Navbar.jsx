@@ -115,13 +115,20 @@ const NavBar = props => {
   useEffect(() => {
     console.log(authService.getCurrentUser());
   });
+  const getTotalCartItems = () => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) cart = new Array();
+    return cart.length;
+  };
 
   return (
     <div className="h-48 bg-blue-800">
       <div className="container mx-auto px-32">
         <div className="flex flex-row justify-between h-32 items-center">
           <div>
-            <h1 className="text-4xl font-anton text-white">Digital</h1>
+            <a href="/">
+              <h1 className="text-4xl font-anton text-white">Digital</h1>
+            </a>
           </div>
           <div>
             <div className="w-full max-w-sm ml-0 text-right pb-3">
@@ -160,7 +167,9 @@ const NavBar = props => {
                   type="button"
                 >
                   <a href="/user/cart">
-                    <span className="text-2xl">CART</span>
+                    <span className="text-2xl">
+                      CART ({getTotalCartItems()})
+                    </span>
                   </a>
                 </button>
               </div>

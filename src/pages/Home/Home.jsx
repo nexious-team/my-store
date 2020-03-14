@@ -7,18 +7,23 @@ import Footer from "../../components/Footer";
 const Home = () => {
   return (
     <div>
-      <Carousel></Carousel>
-      <FeatureCategory></FeatureCategory>
-      <div className="mx-auto container my-10">
-        <hr />
+      <div className="mx-auto container px-32">
+        <Carousel></Carousel>
+        <FeatureCategory></FeatureCategory>
+        <div className="mx-auto container my-10">
+          <hr />
+        </div>
+        <FeatureProduct title="Feature Colletions"></FeatureProduct>
+        <div className="mx-auto container my-10">
+          <hr />
+        </div>
+        <FeatureProduct title="Apple Products"></FeatureProduct>
+        <div className="mx-auto container my-10">{""}</div>
       </div>
-      <FeatureProduct title="Feature Colletions"></FeatureProduct>
-      <div className="mx-auto container my-10">
-        <hr />
+
+      <div>
+        <Footer></Footer>
       </div>
-      <FeatureProduct title="Apple Products"></FeatureProduct>
-      <div className="mx-auto container my-10">{""}</div>
-      <Footer></Footer>
     </div>
   );
 };

@@ -29,7 +29,7 @@ export async function register(data) {
 export async function login(email, password) {
   try {
     return await axios
-      .post(ENV.API_ENDPOINT + "staff/login", {
+      .post(ENV.API_ENDPOINT + "user/login", {
         email,
         password
       })

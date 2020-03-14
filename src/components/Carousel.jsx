@@ -22,7 +22,26 @@ const Carousel = () => {
   ]);
   return (
     <div style={{ height: "50vh" }} className="mx-auto container bg-blue-100">
-      <p style={{ fontSize: "100px" }}>Carousel</p>
+      <div className="relative">
+        <img
+          src="https://www.apple.com/v/macbook-pro-16/b/images/meta/og__csakh451i0eq_large.png"
+          alt=""
+        />
+        <div
+          style={{
+            opacity: "0.5",
+            fontSize: "4rem",
+            fontWeight: "bold",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)"
+          }}
+          className="absolute uppercase text-gray-500"
+        >
+          <p className="text-center">Carousel</p>
+          <p className="text-center">Placeholder</p>
+        </div>
+      </div>
     </div>
   );
 };
