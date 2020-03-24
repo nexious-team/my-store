@@ -26,6 +26,8 @@ const ProductDetail = () => {
   const [img_index, setImgIndex] = useState(0);
   const handleAddToCart = id => {
     CartService.addItemToCart(id);
+    window.location.reload(true);
+
     // newCart.push({ id: Math.random().toString() });
     // localStorage.setItem("cart", newCart);
   };
@@ -48,7 +50,11 @@ const ProductDetail = () => {
             </div>
             <div className="flex">
               {images.map((i, index) => (
-                <div onClick={() => setImgIndex(index)} className="w-1/4 px-5">
+                <div
+                  key={index}
+                  onClick={() => setImgIndex(index)}
+                  className="w-1/4 px-5"
+                >
                   <img src={i.url} alt="" />
                 </div>
               ))}

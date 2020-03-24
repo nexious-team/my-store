@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import { Navbar } from "./components";
+import Footer from "./components/Footer";
+
 import "./App.css";
 import "./styles.css";
 
@@ -31,6 +33,9 @@ function App() {
             )}
           />
         ))}
+        <div className="pt-32">
+          <Footer></Footer>
+        </div>
       </div>
     </Router>
   );

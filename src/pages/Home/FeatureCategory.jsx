@@ -44,7 +44,7 @@ const FeatureCategory = () => {
       <div className="py-2">
         <p className="font-bold text-3xl">Shop For</p>
       </div>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between flex-wrap">
         {products.map(p => (
           <div>
             <div className="w-40 bg-gray-100 border">
@@ -55,7 +55,9 @@ const FeatureCategory = () => {
                 />
               </div>
               <div className="font-mono text-gray-800">
-                <a href="/product-detail"><p className="text-center">iPhone 11 Pro</p></a>
+                <a href="/product-detail">
+                  <p className="text-center">iPhone 11 Pro</p>
+                </a>
               </div>
             </div>
           </div>

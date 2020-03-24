@@ -60,7 +60,7 @@ const Cart = () => {
               </span>
               <hr />
               {cart.map((i, index) => (
-                <div key={i.key}>
+                <div key={i.id}>
                   <div className="flex font-hindSiliguri">
                     <div className="w-1/5 h-40 flex items-center">
                       <img

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Carousel from "../../components/Carousel";
 import FeatureCategory from "./FeatureCategory";
 import FeatureProduct from "./FeatureProduct";
-import Footer from "../../components/Footer";
 
 const Home = () => {
   return (
@@ -19,10 +18,6 @@ const Home = () => {
         </div>
         <FeatureProduct title="Apple Products"></FeatureProduct>
         <div className="mx-auto container my-10">{""}</div>
-      </div>
-
-      <div>
-        <Footer></Footer>
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ const Carousel = () => {
     }
   ]);
   return (
-    <div style={{ height: "50vh" }} className="mx-auto container bg-blue-100">
+    <div style={{ height: "50vh" }} className="mx-auto container">
       <div className="relative">
         <img
           src="https://www.apple.com/v/macbook-pro-16/b/images/meta/og__csakh451i0eq_large.png"
