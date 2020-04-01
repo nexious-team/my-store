@@ -1,46 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { useTransition, animated, config } from "react-spring";
+import CarouselImage from "./CarouselImage";
 
 import "../assets/css/carousel.css";
+import "./styles.css";
 import img1 from "../assets/img/img-1.jpg";
+import img2 from "../assets/img/module-6.jpg";
+
 const Carousel = () => {
-  const [cards] = useState([
+  const carouselText = [
     {
-      image: img1,
-      title: "Burgundy Flemming",
-      subtitle: "Advertising"
+      text: "a",
+      backgroundColor: "white",
+      image:
+        "https://images.pexels.com/photos/3586911/pexels-photo-3586911.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
     {
-      image: img1,
-      title: "Nigel Nigel",
-      subtitle: "Sound & Vision"
+      text: "b",
+      backgroundColor: "red",
+      image:
+        "https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
     {
-      image: img1,
-      title: "Caspian Bellevedere",
-      subtitle: "Accounting"
+      text: "c",
+      backgroundColor: "blue",
+      image:
+        "https://images.pexels.com/photos/2692464/pexels-photo-2692464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     }
-  ]);
+  ];
+  const [index, set] = useState(0);
+  const onClick = useCallback(() => set(state => (state + 1) % 3), []);
+  // const onClick = () => {
+  //   console.log("click carousel");
+  // };
+  useEffect(
+    () => void setInterval(() => set(state => (state + 1) % 3), 4500),
+    []
+  );
+  const transitions = useTransition(index, p => p, {
+    from: { opacity: 1, transform: "translate3d(100%,0,0)" },
+    enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
+    leave: { opacity: 0, transform: "translate3d(-100%,0,0)" },
+    config: { friction: 45, clamp: false }
+  });
   return (
-    <div style={{ height: "50vh" }} className="mx-auto container">
-      <div className="relative">
-        <img
-          src="https://www.apple.com/v/macbook-pro-16/b/images/meta/og__csakh451i0eq_large.png"
-          alt=""
-        />
-        <div
-          style={{
-            opacity: "0.5",
-            fontSize: "4rem",
-            fontWeight: "bold",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)"
-          }}
-          className="absolute uppercase text-gray-500"
-        >
-          <p className="text-center">Carousel</p>
-          <p className="text-center">Placeholder</p>
-        </div>
+    <div
+      className="overflow-hidden  w-full "
+      style={{ minHeight: "50vh", position: "relative" }}
+    >
+      <div className="mx-auto container carousel-animated">
+        {transitions.map(({ item, props, key }) => {
+          return (
+            <CarouselImage
+              imageNumber={carouselText}
+              imageIndex={item}
+              key={key}
+              text={carouselText[item].text}
+              backgroundColor={carouselText[item].backgroundColor}
+              style={props}
+              image={carouselText[item].image}
+            />
+          );
+        })}
       </div>
     </div>
   );

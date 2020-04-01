@@ -1,0 +1,6 @@
+.carousel-animated > div {
+  position: absolute;
+  height: 50vh;
+  width: 100%;
+  will-change: transform, opacity;
+}

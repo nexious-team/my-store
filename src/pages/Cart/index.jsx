@@ -48,6 +48,14 @@ const Cart = () => {
           </div>
           <div className="pr-5">></div>
           <div className="pr-5">Leica S</div>
+          <div className="flex-grow text-right">
+            <a
+              href={{}}
+              className="rounded bg-blue-400 hover:bg-blue-500 px-5 py-2 text-white"
+            >
+              Continue Shopping
+            </a>
+          </div>
         </div>
         <div>
           <p className="font-anton font-hairline text-2xl ">Your Cart</p>
@@ -153,10 +161,10 @@ const Cart = () => {
                 </p>
               </div>
             </div>
-            <div className="pt-3">
-              <button className="rounded-sm w-full bg-green-600 hover:bg-green-700 hover:underline text-white font-bold text-lg py-3 ">
-                Checkout
-              </button>
+            <div className="pt-3 ">
+              <div className="rounded-sm w-full bg-green-600 hover:bg-green-700 hover:underline text-white font-bold text-lg py-3 text-center">
+                <a href="/payment_information">Proceed To Checkout</a>
+              </div>
             </div>
           </div>
         </div>

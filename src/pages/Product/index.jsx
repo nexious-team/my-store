@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ProductImagePreview from "./ProductImagePreview";
 import { v1 as uuidv1 } from "uuid";
 import CartService from "../../services/cart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -42,23 +43,13 @@ const ProductDetail = () => {
       </div>
       <div className="mx-auto container">
         <div className="flex m-0 p-0 pt-5">
+          {/* Image Preview */}
           <div className="w-2/5 ">
-            <div className="relative " style={{ height: "25rem" }}>
-              <div className="absolute inset-x-0 bottom-0">
-                <img src={images[img_index].url} alt="" />
-              </div>
-            </div>
-            <div className="flex">
-              {images.map((i, index) => (
-                <div
-                  key={index}
-                  onClick={() => setImgIndex(index)}
-                  className="w-1/4 px-5"
-                >
-                  <img src={i.url} alt="" />
-                </div>
-              ))}
-            </div>
+            <ProductImagePreview
+              images={images}
+              img_index={img_index}
+              onClick={setImgIndex}
+            ></ProductImagePreview>
           </div>
           <div className="w-auto flex-1 pt-10">
             <div className="uppercase text-xl font-bold py-2">

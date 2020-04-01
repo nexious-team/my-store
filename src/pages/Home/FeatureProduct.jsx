@@ -1,4 +1,5 @@
 import React from "react";
+import FeatureProductCard from "./FeatureProductCard";
 
 const FeatureProduct = props => {
   const products = [
@@ -45,19 +46,7 @@ const FeatureProduct = props => {
       </div>
       <div className="flex flex-row justify-between items-center">
         {products.map(p => (
-          <div>
-            <div className="w-40 h-56">
-              <div style={{ minHeight: "77%" }} className="flex items-center">
-                <img src={p.url} alt="" />
-              </div>
-              <div className="font-mono text-gray-800">
-                <p className="text-center text-lg">{p.name}</p>
-              </div>
-              <div>
-                <p className="font-bold text-xl">$18,000</p>
-              </div>
-            </div>
-          </div>
+          <FeatureProductCard url={p.url} title={p.title}></FeatureProductCard>
         ))}
       </div>
     </div>

@@ -47,7 +47,10 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form className="px-3 py-5 shadow rounded" onSubmit={handleSubmit}>
+    <div className="mx-auto container px-32">
+      <div className="">
+        <div>checkout</div>
+        {/* <form className="px-3 py-5 shadow rounded" onSubmit={handleSubmit}>
       <CardSection />
       <button
         className="mt-3 bg-blue-600 w-full rounded text-white font-mono text-lg py-3 hover:bg-blue-700"
@@ -55,6 +58,8 @@ export default function CheckoutForm() {
       >
         Pay Now
       </button>
-    </form>
+    </form> */}
+      </div>
+    </div>
   );
 }
