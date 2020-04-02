@@ -45,8 +45,12 @@ const FeatureProduct = props => {
         <p className="font-bold text-3xl">{props.title}</p>
       </div>
       <div className="flex flex-row justify-between items-center">
-        {products.map(p => (
-          <FeatureProductCard url={p.url} title={p.title}></FeatureProductCard>
+        {products.map((p, index) => (
+          <FeatureProductCard
+            key={index}
+            url={p.url}
+            title={p.title}
+          ></FeatureProductCard>
         ))}
       </div>
     </div>

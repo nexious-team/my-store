@@ -1,20 +1,11 @@
 import React from "react";
 import { FormInput } from "../../components/Form";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
-import {
-  faCcVisa,
-  faCcMastercard,
-  faCcAmex,
-  faPaypal,
-  faCcDinersClub,
-  faCcDiscover,
-  faCcPaypal
-} from "@fortawesome/free-brands-svg-icons";
-import { Elements } from "@stripe/react-stripe-js";
+
 import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./CheckoutForm";
-const stripePromise = loadStripe("pk_test_WaCkQbtLC5eFJWAW5bMZ5Cpx00v6MiilgA");
+// import CheckoutForm from "./CheckoutForm";
+// const stripePromise = loadStripe("pk_test_WaCkQbtLC5eFJWAW5bMZ5Cpx00v6MiilgA");
 const Payment = () => {
   return (
     <div

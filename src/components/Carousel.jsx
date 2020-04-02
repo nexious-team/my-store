@@ -1,11 +1,9 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { useTransition, animated, config } from "react-spring";
+import React, { useState, useEffect } from "react";
+import { animated, useTransition } from "react-spring";
 import CarouselImage from "./CarouselImage";
 
 import "../assets/css/carousel.css";
 import "./styles.css";
-import img1 from "../assets/img/img-1.jpg";
-import img2 from "../assets/img/module-6.jpg";
 
 const Carousel = () => {
   const carouselText = [
@@ -29,7 +27,7 @@ const Carousel = () => {
     }
   ];
   const [index, set] = useState(0);
-  const onClick = useCallback(() => set(state => (state + 1) % 3), []);
+  // const onClick = useCallback(() => set(state => (state + 1) % 3), []);
   // const onClick = () => {
   //   console.log("click carousel");
   // };
@@ -41,7 +39,8 @@ const Carousel = () => {
     from: { opacity: 1, transform: "translate3d(100%,0,0)" },
     enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
     leave: { opacity: 0, transform: "translate3d(-100%,0,0)" },
-    config: { friction: 45, clamp: false }
+    // config: { friction: 45, clamp: false, tension: 120 }
+    config: { tension: 110 }
   });
   return (
     <div

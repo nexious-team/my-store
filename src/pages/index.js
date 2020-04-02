@@ -5,5 +5,15 @@ import Register from "./Register/Register";
 import ProductDetail from "./Product";
 import Payment from "./Payment";
 import Cart from "./Cart";
+import Category from "./Category";
 
-export { Home, Service, Login, Register, ProductDetail, Payment, Cart };
+export {
+  Home,
+  Service,
+  Login,
+  Register,
+  ProductDetail,
+  Payment,
+  Cart,
+  Category
+};

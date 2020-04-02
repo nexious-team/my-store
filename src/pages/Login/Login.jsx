@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import auth from "../../services/authService";
-import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
+// import { connect } from "react-redux";
+// import { useHistory } from "react-router-dom";
 import { actionCallApi } from "../../services/actionCallApi";
 
 const Login = props => {

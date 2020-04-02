@@ -8,7 +8,7 @@ const FeatureCateProduct = props => {
           <img src={props.image} alt="" />
         </div>
         <div className="font-mono text-gray-800">
-          <a href="/product-detail">
+          <a href="/category">
             <p className="text-center">{props.title}</p>
           </a>
         </div>

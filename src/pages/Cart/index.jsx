@@ -17,9 +17,9 @@ const Cart = () => {
   const getShippingCost = () => {
     return 100;
   };
-  const getTotalPrice = () => {
-    return getTotalUnitPrice() + getShippingCost();
-  };
+  // const getTotalPrice = () => {
+  //   return getTotalUnitPrice() + getShippingCost();
+  // };
   const handleMinus = index => {
     const cartitems = [...cart];
     cartitems[index].qty--;

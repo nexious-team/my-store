@@ -5,7 +5,8 @@ import {
   Register,
   ProductDetail,
   Payment,
-  Cart
+  Cart,
+  Category
 } from "./pages";
 
 export default [
@@ -43,5 +44,10 @@ export default [
     exact: true,
     path: "/user/cart",
     component: Cart
+  },
+  {
+    exact: true,
+    path: "/category",
+    component: Category
   }
 ];
