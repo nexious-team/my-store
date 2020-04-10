@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FormInput } from "../../components/Form";
+import CartService from "../../services/cart";
+import axios from "axios";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
 
@@ -7,6 +9,46 @@ import { loadStripe } from "@stripe/stripe-js";
 // import CheckoutForm from "./CheckoutForm";
 // const stripePromise = loadStripe("pk_test_WaCkQbtLC5eFJWAW5bMZ5Cpx00v6MiilgA");
 const Payment = () => {
+  const [cart, setCart] = useState([]);
+  const setCartCallProduct = () => {
+    // setCart(CartService.getCartItems());
+    const api = "https://nexious-store-api.herokuapp.com/api/products/";
+    let request = [];
+    const inCart = CartService.getCartItems();
+    inCart.map((i, index) => {
+      request[index] = axios.get(api + i.id);
+    });
+    axios.all(request).then(
+      axios.spread((...responses) => {
+        let cartitems = [];
+        responses.forEach((res, index) => {
+          cartitems[index] = {
+            product: res.data.payload,
+            qty: inCart[index].qty,
+          };
+        });
+        console.log(inCart);
+        setCart(cartitems);
+        console.log(cart);
+        // use/access the results
+      })
+    );
+  };
+  const calTotalProductCost = () => {
+    let totalCost = 0;
+    cart.forEach((c) => {
+      const cost = c.qty * c.product.product_units[0].price;
+      totalCost += cost;
+    });
+    return totalCost;
+  };
+
+  const calTotalCost = () => {
+    return calTotalProductCost() + 100;
+  };
+  useEffect(() => {
+    setCartCallProduct();
+  }, []);
   return (
     <div
       style={{ minHeight: "100vh" }}
@@ -120,7 +162,7 @@ const Payment = () => {
                 <p className="font-semibold">Total product costs:</p>
               </div>
               <div>
-                <p>$100</p>
+                <p>${calTotalProductCost()}</p>
               </div>
             </div>
             <div className="flex flex-wrap justify-between">
@@ -136,7 +178,7 @@ const Payment = () => {
                 <p className="font-semibold">Shipping Cost: </p>
               </div>
               <div>
-                <p>$10</p>
+                <p>$100</p>
               </div>
             </div>
             <div className="pt-3 pb-3">
@@ -147,7 +189,7 @@ const Payment = () => {
                 <p className="font-semibold">Total Cost: </p>
               </div>
               <div>
-                <p>$110</p>
+                <p>${calTotalCost()}</p>
               </div>
             </div>
           </div>

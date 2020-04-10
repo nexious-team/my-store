@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import CartService from "../../services/cart";
+import CartItem from "./cartItem";
+import axios from "axios";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
+  const [proInCart, setProInCart] = useState();
   // let cart = [];
 
   const getTotalUnitPrice = () => {
     let price = 0;
-    cart.forEach(c => {
+    cart.forEach((c) => {
       price += c.price * c.qty;
     });
     return price;
@@ -17,28 +21,71 @@ const Cart = () => {
   const getShippingCost = () => {
     return 100;
   };
-  // const getTotalPrice = () => {
-  //   return getTotalUnitPrice() + getShippingCost();
-  // };
-  const handleMinus = index => {
+
+  const handleMinus = (i) => {
     const cartitems = [...cart];
-    cartitems[index].qty--;
-    if (cartitems[index].qty < 0) {
-      cartitems[index].qty = 0;
+    cartitems[i].qty = cartitems[i].qty - 1;
+    if (cartitems[i].qty < 0) {
+      cartitems[i].qty = 0;
     }
-    CartService.editCartItems(index, cartitems[index].qty);
+    CartService.editCartItems(i, cartitems[i].qty);
     setCart(cartitems);
   };
 
-  const handlePlus = index => {
+  const handlePlus = (index) => {
     const cartitems = [...cart];
     cartitems[index].qty++;
     setCart(cartitems);
     CartService.editCartItems(index, cartitems[index].qty);
   };
+
+  async function getProduct() {
+    const response = axios(
+      `https://nexious-store-api.herokuapp.com/api/products/5da9c598ed822e0f944cfd18`
+    );
+    return await response;
+  }
+
+  const setCartCallProduct = () => {
+    // setCart(CartService.getCartItems());
+    const api = "https://nexious-store-api.herokuapp.com/api/products/";
+    let request = [];
+    const inCart = CartService.getCartItems();
+    inCart.map((i, index) => {
+      request[index] = axios.get(api + i.id);
+    });
+    axios.all(request).then(
+      axios.spread((...responses) => {
+        let cartitems = [];
+        responses.forEach((res, index) => {
+          cartitems[index] = {
+            product: res.data.payload,
+            qty: inCart[index].qty,
+          };
+        });
+        console.log(inCart);
+        setCart(cartitems);
+        console.log(cart);
+        // use/access the results
+      })
+    );
+  };
+  const calTotalProductCost = () => {
+    let totalCost = 0;
+    cart.forEach((c) => {
+      const cost = c.qty * c.product.product_units[0].price;
+      totalCost += cost;
+    });
+    return totalCost;
+  };
+
+  const calTotalCost = () => {
+    return calTotalProductCost() + 100;
+  };
   useEffect(() => {
-    setCart(CartService.getCartItems());
+    setCartCallProduct();
   }, []);
+
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="mx-auto container px-32">
@@ -47,12 +94,11 @@ const Cart = () => {
             <span>Home</span>
           </div>
           <div className="pr-5">></div>
-          <div className="pr-5">Leica S</div>
+          <div onClick={() => console.log(proInCart)} className="pr-5">
+            Leica S
+          </div>
           <div className="flex-grow text-right">
-            <a
-              href={{}}
-              className="rounded bg-blue-400 hover:bg-blue-500 px-5 py-2 text-white"
-            >
+            <a className="rounded bg-blue-400 hover:bg-blue-500 px-5 py-2 text-white">
               Continue Shopping
             </a>
           </div>
@@ -64,66 +110,20 @@ const Cart = () => {
           <div className="w-3/4 pr-2">
             <div className="border rounded  bg-white pl-5 py-4">
               <span className="font-semibold font-hindSiliguri text-xl">
-                There are {cart.length} items in your cart
+                There are {cart && cart.length} items in your cart
               </span>
               <hr />
-              {cart.map((i, index) => (
-                <div key={i.id}>
-                  <div className="flex font-hindSiliguri">
-                    <div className="w-1/5 h-40 flex items-center">
-                      <img
-                        src="https://cdn.shopify.com/s/files/1/0543/1637/products/1347911009_360x.jpg?v=1484754685"
-                        alt=""
-                      />
-                    </div>
-                    <div className="pt-4 pl-5 flex-1">
-                      <p className="font-medium text-lg">Product Name</p>
-                      <p>
-                        Product Description: Lorem ipsum dolor sit amet
-                        consectetur, adipisicing elit. Non{" "}
-                      </p>
-                      <div className="text-lg font-medium">
-                        <div className="flex">
-                          <p className="pr-2">Qty: </p>
-                          <div
-                            onClick={() => handleMinus(index)}
-                            className="px-2 text-white hover:bg-blue-800 bg-blue-700 text-md rounded-l"
-                          >
-                            <button onClick={() => handleMinus(index)}>
-                              <FontAwesomeIcon
-                                className=" mx-auto text-sm"
-                                icon={faMinus}
-                              />
-                            </button>
-                          </div>
-                          <div className="w-10 border text-center font-light text-sm">
-                            <p>{i.qty}</p>
-                          </div>
-                          <div className="px-2 text-white hover:bg-red-800 bg-red-700 text-md rounded-r ">
-                            <button onClick={() => handlePlus(index)}>
-                              <FontAwesomeIcon
-                                className=" mx-auto text-sm"
-                                icon={faPlus}
-                              />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-1/5 h-40 flex items-center">
-                      <span className="text-blue-500 text-2xl font-medium">
-                        {new Intl.NumberFormat("en-US", {
-                          style: "currency",
-                          currency: "USD"
-                        }).format(i.qty * i.price)}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="">
-                    <hr />
-                  </div>
-                </div>
-              ))}
+              {cart &&
+                cart.map((i, index) => (
+                  <CartItem
+                    product={i.product}
+                    qty={i.qty}
+                    key={index}
+                    index={index}
+                    onMinusClick={handleMinus}
+                    onPlusClick={handlePlus}
+                  ></CartItem>
+                ))}
             </div>
           </div>
           <div className="w-1/4 pl-2">
@@ -137,8 +137,8 @@ const Cart = () => {
                 <p>
                   {new Intl.NumberFormat("en-US", {
                     style: "currency",
-                    currency: "USD"
-                  }).format(getTotalUnitPrice())}
+                    currency: "USD",
+                  }).format(calTotalProductCost())}
                 </p>
               </div>
               <div className="flex px-2 py-3 text-md">
@@ -146,7 +146,7 @@ const Cart = () => {
                 <p>
                   {new Intl.NumberFormat("en-US", {
                     style: "currency",
-                    currency: "USD"
+                    currency: "USD",
                   }).format(getShippingCost())}
                 </p>
               </div>
@@ -156,8 +156,8 @@ const Cart = () => {
                 <p>
                   {new Intl.NumberFormat("en-US", {
                     style: "currency",
-                    currency: "USD"
-                  }).format(getTotalUnitPrice())}
+                    currency: "USD",
+                  }).format(calTotalCost())}
                 </p>
               </div>
             </div>

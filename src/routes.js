@@ -6,48 +6,49 @@ import {
   ProductDetail,
   Payment,
   Cart,
-  Category
+  Category,
+  NotFound,
 } from "./pages";
 
 export default [
   {
     exact: true,
     path: "/",
-    component: Home
+    component: Home,
   },
   {
     exact: true,
     path: "/service",
-    component: Service
+    component: Service,
   },
   {
     exact: true,
     path: "/login",
-    component: Login
+    component: Login,
   },
   {
     exact: true,
     path: "/register",
-    component: Register
+    component: Register,
   },
   {
     exact: true,
-    path: "/product-detail",
-    component: ProductDetail
+    path: "/product-detail/:id",
+    component: ProductDetail,
   },
   {
     exact: true,
     path: "/payment_information",
-    component: Payment
+    component: Payment,
   },
   {
     exact: true,
     path: "/user/cart",
-    component: Cart
+    component: Cart,
   },
   {
     exact: true,
     path: "/category",
-    component: Category
-  }
+    component: Category,
+  },
 ];

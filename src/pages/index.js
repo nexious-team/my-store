@@ -6,6 +6,7 @@ import ProductDetail from "./Product";
 import Payment from "./Payment";
 import Cart from "./Cart";
 import Category from "./Category";
+import NotFound from "./NotFound";
 
 export {
   Home,
@@ -15,5 +16,6 @@ export {
   ProductDetail,
   Payment,
   Cart,
-  Category
+  Category,
+  NotFound,
 };

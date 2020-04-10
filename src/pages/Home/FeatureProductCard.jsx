@@ -1,9 +1,11 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 
-const FeatureProductCard = props => {
+const FeatureProductCard = (props) => {
+  const link = `/product-detail/${props.productId}`;
   return (
     <div>
-      <a href="/product-detail">
+      <Link to={link}>
         <div className="w-40 h-56">
           <div style={{ minHeight: "77%" }} className="flex items-center">
             <img src={props.url} alt="" />
@@ -12,10 +14,15 @@ const FeatureProductCard = props => {
             <p className="text-center text-lg">{props.title}</p>
           </div>
           <div>
-            <p className="font-bold text-xl">$18,000</p>
+            <p className="font-bold text-xl">
+              {new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(props.product.product_units[0].price)}
+            </p>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
