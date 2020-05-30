@@ -81,11 +81,6 @@ const Footer = () => {
                   placeholder="Email Address"
                 />
                 <button className="h-10 bg-gray-200 p-2">SIGN UP</button>
-                <select>
-                  <option value="A">Apple</option>
-                  <option value="B">Banana</option>
-                  <option value="C">Cranberry</option>
-                </select>
               </form>
             </div>
           </div>
