@@ -1,7 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch } from "react-redux";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 const CartItem = (props) => {
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="flex font-hindSiliguri">

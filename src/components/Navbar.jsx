@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavDropdown from "../commons/navdropdown";
 import authService from "../services/authService";
-const NavBar = props => {
+const NavBar = (props) => {
   const [dropdown, setDropdown] = useState([
     {
       id: 1,
@@ -9,17 +9,17 @@ const NavBar = props => {
       submenu: [
         {
           name: "Canon",
-          route: "#"
+          route: "#",
         },
         {
           name: "Sony",
-          route: "#"
+          route: "#",
         },
         {
           name: "Red",
-          route: "#"
-        }
-      ]
+          route: "#",
+        },
+      ],
     },
     {
       id: 2,
@@ -27,17 +27,17 @@ const NavBar = props => {
       submenu: [
         {
           name: "Shoulder",
-          route: "#"
+          route: "#",
         },
         {
           name: "Backpack",
-          route: "#"
+          route: "#",
         },
         {
           name: "Straps",
-          route: "#"
-        }
-      ]
+          route: "#",
+        },
+      ],
     },
     {
       id: 3,
@@ -45,17 +45,17 @@ const NavBar = props => {
       submenu: [
         {
           name: "Canon",
-          route: "#"
+          route: "#",
         },
         {
           name: "Sony",
-          route: "#"
+          route: "#",
         },
         {
           name: "Red",
-          route: "#"
-        }
-      ]
+          route: "#",
+        },
+      ],
     },
     {
       id: 4,
@@ -63,17 +63,17 @@ const NavBar = props => {
       submenu: [
         {
           name: "Canon",
-          route: "#"
+          route: "#",
         },
         {
           name: "Sony",
-          route: "#"
+          route: "#",
         },
         {
           name: "Red",
-          route: "#"
-        }
-      ]
+          route: "#",
+        },
+      ],
     },
     {
       id: 5,
@@ -81,17 +81,17 @@ const NavBar = props => {
       submenu: [
         {
           name: "Canon",
-          route: "#"
+          route: "#",
         },
         {
           name: "Sony",
-          route: "#"
+          route: "#",
         },
         {
           name: "Red",
-          route: "#"
-        }
-      ]
+          route: "#",
+        },
+      ],
     },
     {
       id: 6,
@@ -99,18 +99,18 @@ const NavBar = props => {
       submenu: [
         {
           name: "Canon",
-          route: "#"
+          route: "#",
         },
         {
           name: "Sony",
-          route: "#"
+          route: "#",
         },
         {
           name: "Red",
-          route: "#"
-        }
-      ]
-    }
+          route: "#",
+        },
+      ],
+    },
   ]);
   useEffect(() => {
     console.log(authService.getCurrentUser());
@@ -139,7 +139,31 @@ const NavBar = props => {
                   </span>
                 </a>
               ) : (
-                <p>{authService.getCurrentUser()}</p>
+                <div>
+                  <NavDropdown
+                    item={
+                      <p className="text-white cursor-pointer">
+                        Hi {authService.getCurrentUser()}, Welcome Back.
+                      </p>
+                    }
+                    submenu={[
+                      {
+                        name: "Your Account",
+                        route: "/user",
+                      },
+                      {
+                        name: "Setting",
+                        route: "#",
+                      },
+                      {
+                        name: "Logout",
+                        route: "#",
+                      },
+                    ]}
+                  >
+                    {" "}
+                  </NavDropdown>
+                </div>
               )}
             </div>
             <div className="flex flex-row items-center">
@@ -156,7 +180,7 @@ const NavBar = props => {
                       className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-900 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded"
                       type="button"
                     >
-                      Sign Up
+                      Search
                     </button>
                   </div>
                 </form>
@@ -177,7 +201,7 @@ const NavBar = props => {
           </div>
         </div>
         <div className="flex flex-row pt-5">
-          {dropdown.map(d => (
+          {dropdown.map((d) => (
             <div className="self-end mr-3" key={d.id}>
               <NavDropdown item={d.Name} submenu={d.submenu}>
                 {" "}

@@ -1,16 +1,17 @@
 import React from "react";
 
-const FormInput = props => {
+const FormInput = (props) => {
   return (
-    <div class="mb-4">
+    <div className="mb-4">
       <label
-        class="block text-gray-700 text-md font-bold mb-2"
-        for="{props.label}"
+        className="block text-gray-700 text-md font-bold mb-2"
+        htmlFor="{props.label}"
       >
         {props.label}
       </label>
       <input
-        class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        onChange={(e) => props.updateData(e, props.data)}
+        className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         id={props.label}
         type={props.type}
         placeholder={props.placeholder}

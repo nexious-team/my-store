@@ -8,6 +8,7 @@ import {
   Cart,
   Category,
   NotFound,
+  User,
 } from "./pages";
 
 export default [
@@ -48,7 +49,12 @@ export default [
   },
   {
     exact: true,
-    path: "/category",
+    path: "/category/:id",
     component: Category,
+  },
+  {
+    exact: true,
+    path: "/user",
+    component: User,
   },
 ];

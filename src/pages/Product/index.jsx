@@ -20,13 +20,14 @@ const ProductDetail = (props) => {
       .catch((res) => {
         setNotFound(true);
       });
-    console.log(id);
+    console.log(product);
   }, []);
 
   const [img_index, setImgIndex] = useState(0);
-  const handleAddToCart = (id) => {
-    CartService.addItemToCart(product._id);
+  const handleAddToCart = (_id) => {
+    CartService.addItemToCart(product._id, product.product_units[0]._id);
     window.location.reload(true);
+    console.log(product.product_units[0]._id);
 
     // newCart.push({ id: Math.random().toString() });
     // localStorage.setItem("cart", newCart);
@@ -57,15 +58,17 @@ const ProductDetail = (props) => {
                 ></ProductImagePreview>
               )}
             </div>
-            <div className="w-auto flex-1 pt-10">
+            <div className="w-auto flex-1 pt-10 pl-8">
               <div className="uppercase text-xl font-bold py-2">
                 {product && <p> {product.name} </p>}
               </div>
               <div className="flex py-3 py-3">
-                <div className="text-2xl font-bold">$18,000</div>
+                <div className="text-2xl font-bold">
+                  ${product.product_units && product.product_units[0].price}
+                </div>
                 <div className="px-3">
                   <button className=" rounded border-2 border-blue-700 text-xl text-blue-700 font-mono px-4">
-                    Save $3,600
+                    Save $3
                   </button>
                 </div>
               </div>

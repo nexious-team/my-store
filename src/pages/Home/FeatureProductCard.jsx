@@ -7,7 +7,7 @@ const FeatureProductCard = (props) => {
     <div>
       <Link to={link}>
         <div className="w-40 h-56">
-          <div style={{ minHeight: "77%" }} className="flex items-center">
+          <div style={{ minHeight: "77%" }} className="flex items-center h-48">
             <img src={props.url} alt="" />
           </div>
           <div className="font-mono text-gray-800">

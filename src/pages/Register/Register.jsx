@@ -4,21 +4,21 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { actionCallApi } from "../../services/actionCallApi";
 
-const Register = props => {
+const Register = (props) => {
   const [data, setData] = useState({
     first_name: "",
     last_name: "",
     username: "",
     email: "",
-    password: ""
+    password: "",
   });
   const [loginFail, setLoginFail] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const authLogin = async e => {
+  const authLogin = async (e) => {
     e.preventDefault();
     try {
       await auth.register(data);
-      console.log("loggin in");
+      console.log("logginin");
       // actionCallApi().then(res => {
       //   props.onCurrentUser(res.data.payload);
       // });
@@ -43,7 +43,7 @@ const Register = props => {
               className="shadow appearance-none border rounded-sm w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-300"
               type="text"
               placeholder="First Name"
-              onChange={e => setData({ ...data, first_name: e.target.value })}
+              onChange={(e) => setData({ ...data, first_name: e.target.value })}
             />
           </div>
           {/* Last Name */}
@@ -55,7 +55,7 @@ const Register = props => {
               className="shadow appearance-none border rounded-sm w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-300"
               type="text"
               placeholder="Last Name"
-              onChange={e => setData({ ...data, last_name: e.target.value })}
+              onChange={(e) => setData({ ...data, last_name: e.target.value })}
             />
           </div>
           <div className="mb-4">
@@ -66,7 +66,7 @@ const Register = props => {
               className="shadow appearance-none border rounded-sm w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-300"
               type="text"
               placeholder="Username"
-              onChange={e => setData({ ...data, username: e.target.value })}
+              onChange={(e) => setData({ ...data, username: e.target.value })}
             />
           </div>
           {/* Email */}
@@ -82,7 +82,7 @@ const Register = props => {
               id="email"
               type="text"
               placeholder="Enter Your Email"
-              onChange={e => setData({ ...data, email: e.target.value })}
+              onChange={(e) => setData({ ...data, email: e.target.value })}
             />
           </div>
           {/* Password */}
@@ -98,7 +98,7 @@ const Register = props => {
               id="password"
               type="password"
               placeholder="Enter Your Password"
-              onChange={e => setData({ ...data, password: e.target.value })}
+              onChange={(e) => setData({ ...data, password: e.target.value })}
             />
           </div>
           <div className={loginFail ? "m-0 p-0 d-block" : "m-0 p-0 d-none"}>

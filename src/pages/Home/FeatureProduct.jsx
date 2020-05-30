@@ -10,8 +10,8 @@ const FeatureProduct = (props) => {
     axios
       .get(api + "products")
       .then((res) => {
-        setProducts(res.data.payload);
-        console.log(res.data.payload);
+        setProducts(res.data.payload.splice(0, 5));
+        // console.log(res.data.payload);
       })
       .catch((res) => {
         console.log(res.message);

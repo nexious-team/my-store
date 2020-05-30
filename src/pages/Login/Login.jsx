@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import auth from "../../services/authService";
 // import { connect } from "react-redux";
 // import { useHistory } from "react-router-dom";
 import { actionCallApi } from "../../services/actionCallApi";
 
-const Login = props => {
+const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginFail, setLoginFail] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const authLogin = async e => {
+  const history = useHistory();
+  const authLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     try {
       await auth.login(email, password);
       setLoginFail(false);
-      actionCallApi().then(res => {
+      actionCallApi().then((res) => {
         props.onCurrentUser(res.data.payload);
       });
     } catch (ex) {
@@ -25,7 +27,15 @@ const Login = props => {
         console.log("login Error");
       }
     }
+    window.location.reload();
   };
+  useEffect(() => {
+    const token = auth.getCurrentUser();
+    if (!token) {
+    } else {
+      history.push("/");
+    }
+  });
   return (
     <div>
       <div className="flex justify-center py-3">
@@ -46,7 +56,7 @@ const Login = props => {
               id="email"
               type="text"
               placeholder="Enter Your Email"
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div class="mb-4">
@@ -61,7 +71,7 @@ const Login = props => {
               id="password"
               type="password"
               placeholder="Enter Your Password"
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 

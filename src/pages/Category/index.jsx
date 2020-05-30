@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import ENV from "../../config/config.json";
+import { Link, useParams } from "react-router-dom";
 
 const Category = () => {
+  const [product, setProduct] = useState();
+  const { id } = useParams();
+
+  const getProductInCategory = () => {
+    axios.get(ENV.API_ENDPOINT + "products?_categories[]=" + id).then((res) => {
+      setProduct(res.data.payload);
+    });
+  };
+  useEffect(() => {
+    getProductInCategory();
+  }, []);
   return (
     <div className="container mx-auto px-32">
       <div className="h-12 border-b border-gray-200 flex items-center font-mono ">
@@ -21,25 +35,25 @@ const Category = () => {
       </div>
       <div className="flex flex-row flex-wrap">
         {/* Product List */}
-        {[1, 2, 3, 4, 5].map((i, index) => (
-          <div className="w-1/4 px-2 pt-4">
-            <div className="border rounded p-3">
-              {/* Image */}
-              <div>
-                <img
-                  src="https://purepng.com/public/uploads/large/apple-watch-pcq.png"
-                  alt=""
-                />
-              </div>
-              {/* Product name */}
-              <div className="font-josefin text-lg">
-                Leica Adapter for 21mm f/1.4 ASPH to Accept E82 Filter
-              </div>
-              {/* product price */}
-              <div className="font-mono text-gray-500">$10500</div>
+        {product &&
+          product.map((i, index) => (
+            <div key={index} className="w-1/4 px-2 pt-4">
+              <Link to={`/product-detail/${i._id}`}>
+                <div className="border rounded p-3">
+                  {/* Image */}
+                  <div>
+                    <img src={i.images[0].url} alt="" />
+                  </div>
+                  {/* Product name */}
+                  <div className="font-josefin text-lg">{i.name}</div>
+                  {/* product price */}
+                  <div className="font-mono text-gray-500">
+                    ${i.product_units[0].price}
+                  </div>
+                </div>
+              </Link>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

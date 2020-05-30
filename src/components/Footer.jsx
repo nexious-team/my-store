@@ -9,32 +9,32 @@ import {
   faPaypal,
   faCcDinersClub,
   faCcDiscover,
-  faCcPaypal
+  faCcPaypal,
 } from "@fortawesome/free-brands-svg-icons";
 import { text } from "@fortawesome/fontawesome-svg-core";
 const Footer = () => {
   const [email, setEmail] = useState({ email: "" });
   const [showswal, setshow] = useState(false);
-  const handleSend = event => {
+  const handleSend = (event) => {
     event.preventDefault();
     console.log(email);
     if (email.email === "") return;
     axios
       .post("https://formcarry.com/s/yHekjKv5uto", email, {
-        headers: { Accept: "application/json" }
+        headers: { Accept: "application/json" },
       })
-      .then(function(response) {
+      .then(function (response) {
         console.log(response);
         setshow(true);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
   const textStyle = {
     background: "-webkit-linear-gradient(#C9FFBF, #FFAFBD)",
     WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent"
+    WebkitTextFillColor: "transparent",
   };
   return (
     <div className="w-full bg-gray-100 pt-16 text-gray-600 ">
@@ -81,6 +81,11 @@ const Footer = () => {
                   placeholder="Email Address"
                 />
                 <button className="h-10 bg-gray-200 p-2">SIGN UP</button>
+                <select>
+                  <option value="A">Apple</option>
+                  <option value="B">Banana</option>
+                  <option value="C">Cranberry</option>
+                </select>
               </form>
             </div>
           </div>

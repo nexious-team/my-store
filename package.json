@@ -22,6 +22,7 @@
     "react-spring": "^8.0.27",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "sweetalert2-react": "^0.8.3",
     "tailwindcss": "^1.1.4",
     "uuid": "^7.0.2"
   },

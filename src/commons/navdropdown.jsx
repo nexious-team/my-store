@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavDropdown = props => {
+const NavDropdown = (props) => {
   return (
     <div className="group inline-block relative">
       <button className=" text-white font-semibold py-1 pr-4 rounded inline-flex items-center">
@@ -17,11 +17,11 @@ const NavDropdown = props => {
         className="absolute hidden text-gray-700 pt-2 group-hover:block"
         style={{ marginTop: "1px", zIndex: "10" }}
       >
-        {props.submenu.map(s => (
+        {props.submenu.map((s) => (
           <li className="" key={s.name}>
             <a
               className="w-56 bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-              href="/"
+              href={s.route}
             >
               {s.name}
             </a>

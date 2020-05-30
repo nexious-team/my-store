@@ -10,20 +10,19 @@ const CARD_ELEMENT_OPTIONS = {
       fontSmoothing: "antialiased",
       fontSize: "16px",
       "::placeholder": {
-        color: "#aab7c4"
-      }
+        color: "#aab7c4",
+      },
     },
     invalid: {
       color: "#fa755a",
-      iconColor: "#fa755a"
-    }
-  }
+      iconColor: "#fa755a",
+    },
+  },
 };
 
 function CardSection() {
   return (
     <label>
-      Card details
       <CardElement options={CARD_ELEMENT_OPTIONS} />
     </label>
   );
