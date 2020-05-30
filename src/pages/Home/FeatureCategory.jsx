@@ -31,7 +31,7 @@ const FeatureCategory = () => {
           products.map((p, index) => (
             <FeatureCateProduct
               key={index}
-              image="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              image="https://pluspng.com/img-png/hygiene-products-png-astor-hellas-provides-a-comprehensive-range-of-global-branded-products-covering-categories-such-as-personal-care-items-hygiene-and-toiletries-665.png"
               title={p.name}
               productId={p._id}
               product={p}

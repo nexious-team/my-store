@@ -12,12 +12,29 @@ const ProductImagePreview = (props) => {
   }, []);
   return (
     <div>
-      <div className="relative " style={{ height: "25rem" }}>
-        <div className="absolute inset-x-0 bottom-0">
-          {props.images && (
-            <img src={props.images[props.img_index].url} alt="" />
-          )}
-        </div>
+      <div
+        className="relative"
+        style={{ minHeight: "25rem", maxHeight: "25rem" }}
+      >
+        {props.images && (
+          <div
+            style={{
+              backgroundImage: `url('${props.images[props.img_index].url}')`,
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+            className="absolute inset-x-0 bottom-0 h-full w-full"
+          >
+            {/* {props.images && (
+            <img
+              className="w-full h-auto object-contain"
+              src={props.images[props.img_index].url}
+              alt=""
+            />
+          )} */}
+          </div>
+        )}
       </div>
       <div className="flex">
         {props.images &&

@@ -9,9 +9,9 @@ const FeatureCateProduct = (props) => {
           <div
             style={{
               backgroundImage: `url(${props.image})`,
+              backgroundSize: "contain",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              backgroudSize: "cover",
             }}
             className="w-full h-full"
           ></div>
